@@ -1,1 +1,13 @@
 #!/usr/bin/env python3
+
+from arguments import parser
+from time import sleep
+from bluetooth import is_device_connected
+from subprocess import run
+
+if __name__ == "__main__":
+    args = parser.parse_args()
+    while True:
+        if(is_device_connected(args.mac_address) != args.unknot):
+            run(args.command)
+        sleep(args.interval)

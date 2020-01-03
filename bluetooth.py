@@ -1,7 +1,7 @@
-import shutil
-import subprocess
+from shutil import which
+from subprocess import run
 
-bluetoothctl_path = shutil.which('bluetoothctl')
+bluetoothctl_path = which('bluetoothctl')
 bluetoothctl_exists = bluetoothctl_path != None
 
 
@@ -17,7 +17,7 @@ def execute_bluetoothctl_command(command: list):
     if not bluetoothctl_exists:
         raise BluetoothctlDoesNotExist("Please install bluez-utils package.")
 
-    result = subprocess.run([bluetoothctl_path, '--', *command], capture_output=True)
+    result = run([bluetoothctl_path, '--', *command], capture_output=True)
     stdout = result.stdout.decode('utf-8')
     if result.returncode != 0:
         raise BluetoothCommandError(stdout)
