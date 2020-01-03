@@ -12,7 +12,9 @@ class SplitAction(argparse.Action):
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-                                 description='Execute an arbitrary command when a Bluetooth device is connected or disconnected to the machine.')
+                                 description='Execute an arbitrary command when a Bluetooth device is connected or disconnected to the machine.',
+                                 epilog='Example usage: knot -uw -c "lockscreen" -m AA:BB:CC:DD:EE:FF')
+
 parser.add_argument("-m", "--mac-address", help="device's MAC address", required=True)
 parser.add_argument("-c", "--command", help="command to execute and its arguments", required=True, action=SplitAction)
 parser.add_argument("-u", "--unknot", help="execute command when device is disconnected", action='store_true', default=False)

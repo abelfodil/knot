@@ -20,9 +20,9 @@ optional arguments:
                         False)
   -i INTERVAL, --interval INTERVAL
                         polling interval (default: 5)
-```
 
-Example: `knot -uw -c "lockscreen" -m AA:BB:CC:DD:EE:FF`
+Example usage: knot -uw -c "lockscreen" -m AA:BB:CC:DD:EE:FF
+```
 
 ## Dependencies
 
