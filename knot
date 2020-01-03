@@ -7,7 +7,11 @@ from subprocess import run
 
 if __name__ == "__main__":
     args = parser.parse_args()
+    def should_execute_command(): return is_device_connected(args.mac_address) != args.unknot
     while True:
-        if(is_device_connected(args.mac_address) != args.unknot):
+        if should_execute_command():
             run(args.command)
+            while args.wait and should_execute_command():
+                sleep(args.interval)
+
         sleep(args.interval)
