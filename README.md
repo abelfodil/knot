@@ -1,1 +1,5 @@
 # knot
+
+## Dependencies
+
+- `bluez-utils`
